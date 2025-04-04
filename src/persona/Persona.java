@@ -1,19 +1,28 @@
 package persona;
 public class Persona {
+    private static int contadorPersona = 0;
+    private int idPersona;
     private String nombre;
     private String apellido;
-
-    public Persona(){
-    }
 
     public Persona(String nombre, String apellido){
         this.nombre = nombre;
         this.apellido = apellido;
+        Persona.contadorPersona++;
+        this.idPersona = Persona.contadorPersona;
     }
 
-    public void mostrarPersona(){
-        System.out.println("Nombre: "+nombre);
-        System.out.println("Apellido: "+apellido);
+    public int getIdpersona(){
+        return this.idPersona;
+    }
+    
+    public static int getContadorPersona(){
+        return Persona.contadorPersona;
+    }
+
+    @Override
+    public String toString(){
+        return "Id unico: "+this.idPersona+" Nombre: "+this.nombre+" Apellido: "+this.apellido;
     }
 
     public String getNombre(){

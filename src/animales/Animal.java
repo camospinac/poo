@@ -1,48 +1,40 @@
 package animales;
 
 public class Animal {
-    
-    protected void comer(){
-        System.out.println("Estoy comiendo...");
-    }
-
-    protected void dormir(){
-        System.out.println("Estoy durmiendo...");
+    protected void hacerSonido(){
+        System.out.println("Estoy haciendo un sonido...");
     }
 }
 
 class Perro extends Animal {
-
-    public void ladrar(){
-        System.out.println("Guau Guau...");
-    }
-
-    public void cuidar(){
-        System.out.println("Estoy cuidando...");
-    }
-
     @Override
-    protected void dormir(){
-        System.out.println("Durmiendo como un perro...");
-        System.out.println("Palabra reservada: super");
-        super.dormir();
+    protected void hacerSonido(){
+        System.out.println("Guau Guau...");
+    }    
+}
+
+class Gato extends Animal {
+    @Override
+    protected void hacerSonido(){
+        System.out.println("Miau Miau...");
     }
-    
 }
 
 class PruebaAnimal {
+
+    static void reproducirSonido(Animal animal){
+        animal.hacerSonido();
+    }
+
     public static void main(String[] args) {
         System.out.println("***** Prueba animales *****");
+        var animal = new Animal();
+        var perro = new Perro();
+        var gato = new Gato();
 
-        var animal1 = new Animal();
-        animal1.comer();
-        animal1.dormir();
+        reproducirSonido(animal);
+        reproducirSonido(perro);
+        reproducirSonido(gato);;
 
-        System.out.println("***** Clase Perro *****");
-        var perro1 = new Perro();
-        perro1.ladrar();
-        perro1.cuidar();
-        perro1.dormir();
-        perro1.comer();
     }
 }

@@ -24,6 +24,8 @@ class Perro extends Animal {
     @Override
     protected void dormir(){
         System.out.println("Durmiendo como un perro...");
+        System.out.println("Palabra reservada: super");
+        super.dormir();
     }
     
 }
